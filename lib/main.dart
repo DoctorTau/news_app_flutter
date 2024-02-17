@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/src/services/news_api_service.dart';
+import 'package:news_app/src/views/screens/home_screen.dart';
 
 import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
@@ -16,5 +18,12 @@ void main() async {
   // Run the app and pass in the SettingsController. The app listens to the
   // SettingsController for changes, then passes it further down to the
   // SettingsView.
-  runApp(MyApp(settingsController: settingsController));
+
+  final apiController = NewsApiService();
+  var news = await apiController.getNews();
+  for (var i = 0; i < 10; i++) {
+    print(news[i].title);
+  }
+
+  runApp(HomePage(news));
 }
