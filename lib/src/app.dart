@@ -44,6 +44,12 @@ class _MyAppState extends State<MyApp> {
               snapshot.hasData) {
             return HomePage(snapshot.data as List<News>,
                 toggleTheme: _toggleTheme);
+          } else if (snapshot.hasError) {
+            return Scaffold(
+              body: Center(
+                child: Text('Error: ${snapshot.error}'),
+              ),
+            );
           } else {
             return const Scaffold(
               body: Center(

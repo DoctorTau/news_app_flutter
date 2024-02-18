@@ -30,7 +30,7 @@ class NewsPage extends StatelessWidget {
 
 class _NewsImage extends StatelessWidget {
   final String imageUrl;
-  const _NewsImage(this.imageUrl, {Key? key}) : super(key: key);
+  const _NewsImage(this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _NewsImage extends StatelessWidget {
 
 class _NewsTitle extends StatelessWidget {
   final String title;
-  const _NewsTitle(this.title, {super.key});
+  const _NewsTitle(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class _NewsTitle extends StatelessWidget {
 
 class _NewsDescription extends StatelessWidget {
   final String description;
-  const _NewsDescription(this.description, {super.key});
+  const _NewsDescription(this.description);
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class _NewsDescription extends StatelessWidget {
 
 class _NewsUrl extends StatelessWidget {
   final String url;
-  const _NewsUrl(this.url, {super.key});
+  const _NewsUrl(this.url);
 
   @override
   Widget build(BuildContext context) {
