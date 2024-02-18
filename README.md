@@ -1,30 +1,30 @@
-# news_app
+# News App
 
-A new Flutter project.
+This is a news application built with Flutter. It fetches the latest news from various sources and presents them in a clean, intuitive interface.
+
+## Features
+
+- Fetch and display news from various sources
+- Dark and light theme support
+- Responsive design that works on both Android and iOS
 
 ## Getting Started
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
 
-## Assets
+Main screen
+![Alt text](/media/light.jpg)
 
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
+Main screen dark
+![Alt text](/media/dark.jpg)
 
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
+Detail news screen
+![Alt text](/media/detail.jpg)
 
-## Localization
+[Video demo](media/video_demo.mp4)
 
-This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
+## APK
 
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter
-apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+You can find APK file [here](output/app-release.apk)
