@@ -19,7 +19,7 @@ class NewsTile extends StatelessWidget {
         margin: const EdgeInsets.all(6),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.grey[200],
+          color: Theme.of(context).cardColor,
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

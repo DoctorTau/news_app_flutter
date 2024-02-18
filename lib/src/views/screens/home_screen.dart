@@ -4,7 +4,8 @@ import 'package:news_app/src/views/widgets/news_tile.dart';
 
 class HomePage extends StatefulWidget {
   final List<News> news;
-  const HomePage(this.news, {super.key});
+  final VoidCallback toggleTheme;
+  const HomePage(this.news, {required this.toggleTheme, super.key});
 
   @override
   State<HomePage> createState() => HomePageState();
@@ -16,6 +17,14 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('News App'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.brightness_4),
+            onPressed: () {
+              widget.toggleTheme();
+            },
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: widget.news.length,
