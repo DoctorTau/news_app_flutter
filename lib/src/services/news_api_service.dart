@@ -1,10 +1,12 @@
 import 'dart:convert';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import '../models/news_article.dart';
 import 'package:http/http.dart' as http;
 
 class NewsApiService {
-  final String apiKey = '4e71a60c8206407c89f52b30c17279fd';
+  final String apiKey = dotenv.env['API_KEY']!;
   final String newsTheme = 'Satoru Gojo';
   final String _baseUrl = 'https://newsapi.org/v2/everything';
 
