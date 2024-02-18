@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class NewsApiService {
   final String apiKey = '4e71a60c8206407c89f52b30c17279fd';
-  final String newsTheme = 'flutter';
+  final String newsTheme = 'Satoru Gojo';
   final String _baseUrl = 'https://newsapi.org/v2/everything';
 
   Future<List<News>> getNews() async {
