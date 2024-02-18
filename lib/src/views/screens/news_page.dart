@@ -1,35 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/src/models/news_article.dart';
-import 'package:news_app/src/views/screens/news_page.dart';
+import 'package:url_launcher/link.dart';
 
-class NewsTile extends StatelessWidget {
+class NewsPage extends StatelessWidget {
   final News news;
-
-  const NewsTile(this.news, {super.key});
+  const NewsPage(this.news, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return NewsPage(news);
-        }));
-      },
-      child: Container(
-        margin: const EdgeInsets.all(6),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.grey[200],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              _NewsImage(news.urlToImage),
-              _NewsTitle(news.title),
-              _NewsDescription(news.description),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('News App'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _NewsImage(news.urlToImage),
+            _NewsTitle(news.title),
+            _NewsDescription(news.description),
+            _NewsUrl(news.url),
+          ],
         ),
       ),
     );
@@ -74,13 +66,22 @@ class _NewsDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 12, 16, 12),
-      child: Text(
-        description,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-      ),
-    );
+    return Text(description, style: const TextStyle(fontSize: 16));
+  }
+}
+
+class _NewsUrl extends StatelessWidget {
+  final String url;
+  const _NewsUrl(this.url, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Link(
+        target: LinkTarget.blank,
+        uri: Uri.parse(url),
+        builder: (context, followLink) => TextButton(
+              onPressed: followLink,
+              child: const Text('Read more'),
+            ));
   }
 }

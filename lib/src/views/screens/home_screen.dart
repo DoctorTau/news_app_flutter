@@ -13,17 +13,15 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('News App'),
-        ),
-        body: ListView.builder(
-          itemCount: widget.news.length,
-          itemBuilder: (context, index) {
-            return NewsTile(widget.news[index]);
-          },
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('News App'),
+      ),
+      body: ListView.builder(
+        itemCount: widget.news.length,
+        itemBuilder: (context, index) {
+          return NewsTile(widget.news[index]);
+        },
       ),
     );
   }

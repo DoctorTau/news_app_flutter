@@ -21,9 +21,8 @@ void main() async {
 
   final apiController = NewsApiService();
   var news = await apiController.getNews();
-  for (var i = 0; i < 10; i++) {
-    print(news[i].title);
-  }
 
-  runApp(HomePage(news));
+  runApp(MaterialApp(
+    home: HomePage(news),
+  ));
 }
