@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/src/models/news_article.dart';
-import 'package:news_app/src/services/favourite_article_notifier.dart';
+import 'package:news_app/src/notifiers/favourite_article_notifier.dart';
 import 'package:news_app/src/views/screens/news_page.dart';
 
 class NewsTile extends StatelessWidget {

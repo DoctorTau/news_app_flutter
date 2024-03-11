@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/src/views/widgets/news_tile.dart';
-import 'package:news_app/src/services/favourite_article_notifier.dart'; // Update with the correct path
+import 'package:news_app/src/notifiers/favourite_article_notifier.dart';
 
 class FavoritesScreen extends ConsumerWidget {
   const FavoritesScreen({super.key});
