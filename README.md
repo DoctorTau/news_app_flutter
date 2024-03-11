@@ -12,6 +12,10 @@ This is a news application built with Flutter. It fetches the latest news from v
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+## State management
+
+App is now using riverpod to store the data about favourite articles
+
 ## Screenshots
 
 Main screen
@@ -23,7 +27,15 @@ Main screen dark
 Detail news screen
 ![Alt text](/media/detail.jpg)
 
+Favourite news on the main screen
+![Alt text](/media/FavouriteMain.jpg)
+
+Screen with favourite news
+![Alt text](/media/FavouriteScreen.jpg)
+
 [Video demo](media/video_demo.mp4)
+
+[Favourites demo](media/FavNewsDemo.mp4)
 
 ## APK
 
