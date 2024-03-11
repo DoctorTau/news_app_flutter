@@ -10,6 +10,7 @@ class NewsApiService {
   final String newsTheme = 'Satoru Gojo';
   final String _baseUrl = 'https://newsapi.org/v2/everything';
 
+  // Replace null values with empty strings
   dynamic replaceNullWithEmptyString(dynamic value) {
     if (value is Map<String, dynamic>) {
       return value.map(

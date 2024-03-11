@@ -16,7 +16,7 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(widget: widget),
+      appBar: _MainAppBar(widget: widget),
       body: ListView.builder(
         itemCount: widget.news.length,
         itemBuilder: (context, index) {
@@ -27,9 +27,8 @@ class HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({
-    super.key,
+class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const _MainAppBar({
     required this.widget,
   });
 
