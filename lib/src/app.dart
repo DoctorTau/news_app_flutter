@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
-            return HomePage(snapshot.data as List<News>,
+            return HomeScreen(snapshot.data as List<News>,
                 toggleTheme: _toggleTheme);
           } else if (snapshot.hasError) {
             return Scaffold(

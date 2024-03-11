@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/src/models/news_article.dart';
+import 'package:news_app/src/services/favourite_article_notifier.dart';
 import 'package:news_app/src/views/screens/news_page.dart';
 
 class NewsTile extends StatelessWidget {
@@ -12,7 +15,7 @@ class NewsTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return NewsPage(news);
+          return NewsScreen(news);
         }));
       },
       child: Container(
@@ -26,7 +29,13 @@ class NewsTile extends StatelessWidget {
           child: Column(
             children: [
               _NewsImage(news.urlToImage),
-              _NewsTitle(news.title),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(child: _NewsTitle(news.title)),
+                  _FavoriteButton(news)
+                ],
+              ),
               _NewsDescription(news.description),
             ],
           ),
@@ -82,5 +91,26 @@ class _NewsDescription extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
       ),
     );
+  }
+}
+
+class _FavoriteButton extends StatelessWidget {
+  final News news;
+  const _FavoriteButton(this.news);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer(builder: (context, ref, _) {
+      final isFavorite = ref.watch(favoriteArticlesProvider).contains(news);
+      return IconButton(
+        icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+        color: Colors.red[700],
+        onPressed: () {
+          isFavorite
+              ? ref.read(favoriteArticlesProvider.notifier).removeFavorite(news)
+              : ref.read(favoriteArticlesProvider.notifier).addFavorite(news);
+        },
+      );
+    });
   }
 }

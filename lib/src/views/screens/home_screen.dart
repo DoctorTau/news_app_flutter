@@ -1,37 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/src/models/news_article.dart';
+import 'package:news_app/src/views/screens/favorites_screen.dart';
 import 'package:news_app/src/views/widgets/news_tile.dart';
 
-class HomePage extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   final List<News> news;
   final VoidCallback toggleTheme;
-  const HomePage(this.news, {required this.toggleTheme, super.key});
+  const HomeScreen(this.news, {required this.toggleTheme, super.key});
 
   @override
-  State<HomePage> createState() => HomePageState();
+  State<HomeScreen> createState() => HomeScreenState();
 }
 
-class HomePageState extends State<HomePage> {
+class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('News App'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.brightness_4),
-            onPressed: () {
-              widget.toggleTheme();
-            },
-          ),
-        ],
-      ),
+      appBar: MyAppBar(widget: widget),
       body: ListView.builder(
         itemCount: widget.news.length,
         itemBuilder: (context, index) {
           return NewsTile(widget.news[index]);
         },
       ),
+    );
+  }
+}
+
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBar({
+    super.key,
+    required this.widget,
+  });
+
+  final HomeScreen widget;
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: const Text('News App'),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.brightness_4),
+          onPressed: () {
+            widget.toggleTheme();
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.favorite),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const FavoritesScreen()),
+            );
+          },
+        ),
+      ],
     );
   }
 }

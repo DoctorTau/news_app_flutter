@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:news_app/src/models/news_article.dart';
 import 'package:url_launcher/link.dart';
 
-class NewsPage extends StatelessWidget {
+class NewsScreen extends StatelessWidget {
   final News news;
-  const NewsPage(this.news, {super.key});
+  const NewsScreen(this.news, {super.key});
 
   @override
   Widget build(BuildContext context) {
