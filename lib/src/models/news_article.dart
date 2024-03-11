@@ -1,51 +1,30 @@
-class News {
-  final Source source;
-  final String author;
-  final String title;
-  final String description;
-  final String url;
-  final String urlToImage;
-  final String publishedAt;
-  final String content;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  News({
-    required this.source,
-    required this.author,
-    required this.title,
-    required this.description,
-    required this.url,
-    required this.urlToImage,
-    required this.publishedAt,
-    required this.content,
-  });
+part 'news_article.freezed.dart';
+part 'news_article.g.dart';
 
-  factory News.fromJson(Map<String, dynamic> json) {
-    return News(
-      source: Source.fromJson(json['source'] ?? {}),
-      author: json['author'] ?? '',
-      title: json['title'] ?? '',
-      description: json['description'] ?? '',
-      url: json['url'] ?? '',
-      urlToImage: json['urlToImage'] ?? '',
-      publishedAt: json['publishedAt'] ?? '',
-      content: json['content'] ?? '',
-    );
-  }
+@freezed
+class News with _$News {
+  const factory News({
+    required Source source,
+    required String author,
+    required String title,
+    required String description,
+    required String url,
+    required String urlToImage,
+    required String publishedAt,
+    required String content,
+  }) = _News;
+
+  factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
 }
 
-class Source {
-  final String id;
-  final String name;
+@freezed
+class Source with _$Source {
+  const factory Source({
+    required String id,
+    required String name,
+  }) = _Source;
 
-  Source({
-    required this.id,
-    required this.name,
-  });
-
-  factory Source.fromJson(Map<String, dynamic> json) {
-    return Source(
-      id: json['id'] ?? '',
-      name: json['name'] ?? '',
-    );
-  }
+  factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
 }
